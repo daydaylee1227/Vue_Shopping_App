@@ -31,12 +31,15 @@
        Officia hic voluptatum enim cum aperiam totam voluptatem sit temporibus minus quod in ipsum quidem deserunt harum aut rerum nam magni odio cupiditate recusandae laudantium molestiae ipsam, expedita provident. Doloremque.
        </div>
 
+      <comment-box :id='this.id'></comment-box>
+
     </div>
 
   </div>
 </template>
 
 <script>
+import Comment from '../comments/Comments.vue'
 export default {
   data() {
     return {
@@ -63,7 +66,11 @@ export default {
         click: 3
       };
     }
-  }
+  },
+  components : {
+      "comment-box" : Comment,
+
+  },
 };
 </script>
 
