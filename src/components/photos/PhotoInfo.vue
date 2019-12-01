@@ -6,22 +6,41 @@
             <span>点击次数:{{photoInfo.add_click}}次</span>
         </p>
         <!-- 图片缩略图 -->
-        <div>
-            <div style="height: 1000px; background-color: pink;"></div>
+        <div class="info-container">
+            <!-- <div style=""></div> -->
                 <vue-preview
+                :list="list"
+                :thumbImageStyle="{width: '80px', height: '80px', margin: '5px'}"
+                :previewBoxStyle="{border: '1px solid #eee'}"
+                :tapToClose="true"
+                @close="closeHandler"
+                @destroy="destroyHandler"
+                />
+                <!-- <vue-preview
                 :list="list"
                 :thumbImageStyle="{width: '80px', height: '80px', margin: '10px'}"
                 :previewBoxStyle="{border: '1px solid #eee'}"
                 :tapToClose="true"
                 @close="closeHandler"
                 @destroy="destroyHandler"
+                tag="span"
                 />
-            </div>
-        <!-- 现成的评论组件 -->
-        <photo-comment :id='this.id'></photo-comment>
+                <vue-preview
+                :list="list"
+                :thumbImageStyle="{width: '100px', height: '100px', margin: '10px'}"
+                :previewBoxStyle="{border: '1px solid #eee'}"
+                :tapToClose="true"
+                @close="closeHandler"
+                @destroy="destroyHandler"
+                /> -->
+        </div>
+        <!-- 这个是描述的内容 -->
         <div class="content">
             {{photoInfo.content}}
         </div>
+        <!-- 现成的评论组件 -->
+        <photo-comment :id='this.id'></photo-comment>
+        
     </div>
 
 </template>
@@ -34,7 +53,13 @@ export default {
         return {
             id : this.$route.params.id,
             photoInfo : [],
-            list : './static/images/photos/1.jpg',
+            list : [
+                { src: './static/images/photos/1.jpg', w : 300, h : 220},
+                { src: './static/images/photos/11.jpg', w : 360, h : 220},
+                { src: './static/images/photos/5.jpg', w : 360, h : 220},
+                { src: './static/images/photos/55.jpg', w : 360, h : 220},
+                { src: './static/images/photos/7.jpg', w : 360, h : 220},
+            ],
         }
     },
     created(){
@@ -56,11 +81,23 @@ export default {
                 add_click : '22',
                 content : "这个是描述的内容就是关于家具的具体的情况,比如什么时候开始买家具,家里是如何保养的"
             }
-        }
+        },
+        // 获取对应id图片的 list  用来相应页面的展示
+
+        getList(){
+            // 
+        },
+        closeHandler(){
+            console.log("缩略图 点击图片缩小");
+        },
+        destroyHandler(){
+            console.log('缩略图 图片缩小完成')
+        },
     },
     components :{
         "photo-comment" : Comment,
-    }
+    },
+    
 
 }
 </script>
@@ -81,7 +118,12 @@ export default {
     font-size: 13px;
 }
 .content{
+    padding-left: 10px;
     font-size: 13px;
     line-height: 30px;
+    background: #ccc;
+}
+.thumbImg{
+    box-shadow: 0 0 12px #ccc !important;
 }
 </style>

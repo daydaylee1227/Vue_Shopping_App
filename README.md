@@ -135,5 +135,5 @@ npm test
 #### 完成图片的缩略图
 1. vue-preview 插件
 #### 步骤
-1. cnpm i vue-preview -S
-2
+1. cnpm install --save vue2-preview  对于 vue-cli 搭建的环境
+2. 官方网站[点击这里查看API](https://github.com/LS1231/vue-preview)
