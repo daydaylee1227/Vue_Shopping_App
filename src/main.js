@@ -9,23 +9,31 @@ import './assets/mui/css/mui.min.css'
 import './assets/mui/css/icons-extra.css'
 
 // 按需要导入
-import {
-  Header,
-  Swipe,
-  SwipeItem,
-  Button,
-  Toast
-} from 'mint-ui';
+// import {
+//   Header,
+//   Swipe,
+//   SwipeItem,
+//   Button,
+//   Toast,
+//   Lazyload
+// } from 'mint-ui';
 
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
-Vue.component(Toast.name, Toast);
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.component(Toast.name, Toast);
+// Vue.use(Lazyload);
+
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
 // 阻止启动生产消息，常用作指令
 Vue.config.productionTip = false
 
-
+// 安装图片预览插件
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 // 导入这个时间过滤器
 import {
   formatDate
