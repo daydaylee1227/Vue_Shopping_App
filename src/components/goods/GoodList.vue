@@ -1,20 +1,5 @@
 <template>
     <div class="good-list">
-        <!-- 使用的就是 router-link -->
-        <!-- <router-link class="good-item" v-for="item in goodlist" :key="item.flag_id" tag="div" :to="'/home/goodinfo/'+item.id">
-            <img :src="item.img_url" alt="" >
-            <h1 class="title">{{item.title}}</h1>
-            <div class="info">
-                <p class="price">
-                    <span class="now">￥{{item.price_now}}</span>
-                    <span class="old">￥{{item.price_old}}</span>
-                </p>
-                <p class="sail">
-                    <span>热卖中</span>
-                    <span>剩{{item.num}}件</span>
-                </p>
-            </div>
-        </router-link> -->
         <div class="good-item" v-for="item in goodlist" :key="item.flag_id" @click="getDetail(item.id)">
             <img :src="item.img_url" alt="" >
             <h1 class="title">{{item.title}}</h1>

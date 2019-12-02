@@ -162,7 +162,30 @@ npm test
 2. 方式2: 使用的[编程式导航](https://router.vuejs.org/zh/guide/essentials/navigation.html)
 3. this.$route 是路由对象 所有路由参数 params query 都属于它
 4. this.$router 是 一个路由的导航对象 使用它很方便的 运用js代码 很方便的 实现路由 前进 后退 跳转到新URL地址
+5. 总结个小问题: 也就是在使用这个 编程式导航 通过`this.$router.push({ name : 'goodscomment', params : { id ,"falist" : this.falist}});`  这个对象里面的属性 也就是 name 对应的路由的名称,z合格params属性里面就是你需要向子逐渐传的数据,需要注意的点就是  这个 属性名称需要打引号 也就是符合JSON语法
 
+#### 商品详情中最下边两个按钮
+1. 使用编程式导航 向子组件传入对应的参数
+2. 引入mui-botton的时候 可以清除 display flex 布局 实现 块级样式效果
+
+#### 完成加入购物车动画
+1. 完成相应的基本效果
+2. 问题就是 这个动画 不能去适应这个不同的宽度跟高度
+#### 优化加入购物车
+1. 原因就在于我们每次把小球的位置以及写死
+2. 如果分辨率 跟 滚动条发生改变了 那么问题就会出现
+3. 因此我们不能把位置的具体写死掉
+4. 所以需要我们去动态的去获取坐标值
+5. 获取横纵坐标 两个位置之差就是 最后小球需要位移的具体
+6. getBoundingClientRect() 获取 某个 box 与页面之间的间距
+7. ref="boxname" 属性 然后通过this.$refs.boxname  这个就是DomObject
+
+#### 完成购物车数据的更新
+1. 涉及到 子组件向父组件传递数据
+2. 实现的本质就是 父向子传递方法 子调用这个方法 把数据当作是参数  去完成 数据的传递 
+3. 通过组件上面绑定 也就是 形如 
+`@Func_Name='父组件定义的方法'` postname函数是子组件调用的方法
+4. this.$emit('Func_Name',data);
 
 ## 手机上访问 项目的预览和测试
 
@@ -170,3 +193,17 @@ npm test
 2. 保证 手机 开发项目处于一个电脑 wifi环境 也就是说手机可以访问 电脑IP
 3. 打开自己的项目 package.json 在dev中 添加一个--host指令 把电脑的wifi IP地址设置为 --host值
 4. 查看电脑所处wifi ip 在cmd 终端运行'ipconfig' 查看无限网ip地址
+
+## 数据问题
+1. 用户购买的对应商品的最大数量问题 也就是这个 商品的剩余量
+    + 由于数据的请求是通过这个Vue-resource请求的 所以这个是异步加载数据的过程 还没有等到数据拿到 就通过组件间数据的传递 最后很有可能是undefinded 所以解决的办法就是
+    + 可以使用这个watch属性监听 监听 传递的数据 不管这个执行多少次 只要最后一次 肯定是个合法的number
+    代码: 
+    `
+        watch:{
+		// 属性的监听  完成 这个 商品的最大购买量
+		"max" : function(newval,oldval){
+			mui(".mui-numbox").numbox().setOption('max',newval);
+		}
+	},
+    `

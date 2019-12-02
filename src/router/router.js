@@ -11,6 +11,8 @@ import PhotoList from '@/components/photos/PhotoList.vue'
 import PhotoInfo from '@/components/photos/PhotoInfo.vue'
 import GoodList from '@/components/goods/GoodList.vue'
 import GoodInfo from '@/components/goods/GoodsInfo.vue'
+import GoodsDesc from '@/components/goods/GoodsDesc.vue'
+import GoodsComment from '@/components/goods/GoodsComment.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +48,8 @@ export default new Router({
     {path : '/home/photolist/:id', name : 'photoInfo', component : PhotoInfo},
     {path : '/home/goodlist', name : 'goodlist', component : GoodList},
     {path : '/home/goodinfo/:id', name : 'goodinfo', component : GoodInfo},
+    {path : '/home/goodDesc/:id', name : 'goodsdesc', component : GoodsDesc},
+    {path : '/home/goodComment/:id', name : 'goodscomment', component : GoodsComment},
   ],
   linkActiveClass : 'mui-active',
 })
