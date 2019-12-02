@@ -126,4 +126,20 @@ export default {
 .thumbImg{
     box-shadow: 0 0 12px #ccc !important;
 }
+.pswp__button{
+    width: 32px;
+    height: 30px;
+}
+
+</style>
+
+<style >
+.pswp__button--arrow--left, .pswp__button--arrow--right {
+    width: 32px !important;
+    height: 30px !important;
+    
+}  
+button:enabled:active{
+    background-color: transparent;
+} 
 </style>

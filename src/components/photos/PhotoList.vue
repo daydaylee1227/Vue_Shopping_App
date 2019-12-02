@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="photolist">
         <!-- 顶部的滑动条 -->
         <div id="slider" class="mui-slider ">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">
-						<a :class=" ['mui-control-item',  item.id === 0 ? 'mui-active' : '']" v-for=" item in cates" :key="item.id" @click="getPhtotListById(item.id)">
+						<a :class=" ['mui-control-item',  item.id === 0 ? 'mui-active' : '']" v-for=" item in cates" :key="item.id" @tap="getPhtotListById(item.id)">
 							{{item.title}}
 						</a>
 						
@@ -17,7 +17,7 @@
         <ul class="photo-list">
             <router-link v-for="item in list" :key="item.url" tag="li" :to=" '/home/photolist/'+ item.id">
                 <img v-lazy="item.img_url" >
-                <div class="content">
+                <div class="content" >
                     <div class="title">
                     {{item.title}}
                     </div>
@@ -88,7 +88,7 @@ export default {
             //         this.cates = result.body.message;
             //     }
             // })
-            console.log(cateId);
+            
             if(cateId === 0){
                 this.list = this.Alllist;
                 return ;
@@ -134,6 +134,11 @@ export default {
     background: black;
     opacity: 0.6;
 }
+/* .content:hover{
+    transform: translateY(-50px);
+    background-color: red;
+    transition: all 1s linear;
+} */
 .content .title{
     text-align: center;
     font-size: 18px;
@@ -172,5 +177,11 @@ image[lazy=loading] {
   height: 300px!important;
   margin: auto;
 }
-
+.photolist{
+    
+    margin-bottom: 50px;
+}
+.content{
+    
+}
 </style>

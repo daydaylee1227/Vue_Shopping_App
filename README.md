@@ -28,7 +28,7 @@ npm test
 ```
 
 # 这是一个基于vue的购物商城系统app
-
+项目基于vue2.0 + vue-router + webpack + Mint-ui + mui库
 ## 制作首页App组件
 
 1. 完成 Header 区域 使用的是Mint-UI的Header组件
@@ -117,6 +117,7 @@ npm test
 
 
 #### 实现图片的懒加载
+
 1. 需要用到mint-ui中Lazy load 组件 
 2. 为了实现效果 我们需要全局导入mint-ui组件
 #### Lazy load
@@ -124,6 +125,7 @@ npm test
 2. 为了有懒加载的效果 导入的mint-ui 必须是 全局导入
 
 #### 点击图片 跳转到相应的 位置 也就是改造成 router-link 
+
 1. tag属性改成对应的标签
 2. router对象里面要写法需要注意下`{path : '/home/photolist/:id', name : 'photoInfo', component : PhotoInfo},`
 3. 导入comment子组件 
@@ -137,3 +139,34 @@ npm test
 #### 步骤
 1. cnpm install --save vue2-preview  对于 vue-cli 搭建的环境
 2. 官方网站[点击这里查看API](https://github.com/LS1231/vue-preview)
+
+## 改造商品列表路由
+
+1. 将HomeContainer中商品列表按钮改成 router-link to属性加上标签
+2. 将router.js 导入路由的模板串 然后匹配相应的路由规则
+
+### 实现商品的经典的两列布局
+
+1. `display : flex; justify-content: space-between; flex-direction: column; 设置主轴的方向`
+### 完成商品详情信息展示
+1. 首先把这个每个GoodList中 item 改造成 router-link
+2. 在router.js 导入 对应路由模板字符串
+3. 最后在 路由的匹配规则里面去注册匹配规则
+#### 商品详细的展示使用mui-card
+1. 使用 mui-card 样式
+2. 使用 轮播图 
+3. 做的过程的中 发现了 这个轮播图的组件 可以单独的抽离出来, 这样子就可以一起使用了
+4. 导入mui-number 组件  完成这个购买计数UI
+#### 编程式导航
+1. 方式1: 使用的就是 a 标签的形式 叫做标签 跳转
+2. 方式2: 使用的[编程式导航](https://router.vuejs.org/zh/guide/essentials/navigation.html)
+3. this.$route 是路由对象 所有路由参数 params query 都属于它
+4. this.$router 是 一个路由的导航对象 使用它很方便的 运用js代码 很方便的 实现路由 前进 后退 跳转到新URL地址
+
+
+## 手机上访问 项目的预览和测试
+
+1. 保证自己的手机可以正常的运行
+2. 保证 手机 开发项目处于一个电脑 wifi环境 也就是说手机可以访问 电脑IP
+3. 打开自己的项目 package.json 在dev中 添加一个--host指令 把电脑的wifi IP地址设置为 --host值
+4. 查看电脑所处wifi ip 在cmd 终端运行'ipconfig' 查看无限网ip地址

@@ -9,6 +9,8 @@ import newsList from '@/components/news/Newslist.vue'
 import newsInfo from '@/components/news/newsinfo.vue'
 import PhotoList from '@/components/photos/PhotoList.vue'
 import PhotoInfo from '@/components/photos/PhotoInfo.vue'
+import GoodList from '@/components/goods/GoodList.vue'
+import GoodInfo from '@/components/goods/GoodsInfo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -42,6 +44,8 @@ export default new Router({
     {path : '/home/newsinfo/:id', name : 'newsInfo', component : newsInfo},
     {path : '/home/photolist', name : 'photolist', component : PhotoList},
     {path : '/home/photolist/:id', name : 'photoInfo', component : PhotoInfo},
+    {path : '/home/goodlist', name : 'goodlist', component : GoodList},
+    {path : '/home/goodinfo/:id', name : 'goodinfo', component : GoodInfo},
   ],
   linkActiveClass : 'mui-active',
 })

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Member</h3>
+        <h3>骚皮皮  最帅</h3>
     </div>
 </template>
 
@@ -16,5 +16,7 @@ export default {
 <style  scoped>
 /* lang="scss" 
 导入这个报错*/
-
+h3{
+    color: red;
+}
 </style>

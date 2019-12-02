@@ -62,7 +62,7 @@ export default {
                 { id :9 + this.sum, user_name : "Tony", add_time : '2019-12-05 15:13:44' , content :'服务很好' },
                 { id :10 + this.sum, user_name : "BeauTiy", add_time : '2019-12-05 17:13:54' , content :'服务很好' },
             ]);
-            console.log(this.comments);
+            
         },
         showMore(){
             this.pageindex++;
@@ -110,18 +110,22 @@ export default {
     font-size: 14px; 
     height: 85px;
     margin: 0;
+    border-radius: 5px;
 }
 .cmt-list{
-    font-size: 13px;
+    
+    font-size: 12px;
     margin: 5px 0;
 }
 .cmt-title{
     line-height: 35px;
     background: #ccc;
+    border-radius: 5px;
 }
 .cmt-body{
     margin: 5px 0px;
     padding-left: 10px;
+    border-radius: 5px;
 }
 /* .mint-toast-text{
     color: red!important;
@@ -130,5 +134,6 @@ export default {
 <style >
 .mint-toast-text{
     color: red!important;
+    border-radius: 5px;
 }
 </style>
