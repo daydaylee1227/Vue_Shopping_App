@@ -3,7 +3,7 @@
     font-weight: normal;
     font-style: normal;
     
-    src:  url('../fonts/mui-icons-extra.ttf') format('truetype'); /* iOS 4.1- */
+    src:  url("../fonts/mui-icons-extra.ttf") format('truetype'); /* iOS 4.1- */
     /* ../fonts/mui-icons-extra.ttf */
     
 }
