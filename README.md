@@ -207,3 +207,7 @@ npm test
 		}
 	},
     `
+## 打包问题 
+1. npm run build 时 发现上面css文件有问题 解决的办法就是把mui中css样式中 设计 svg引号问题
+   那个url 最外面改成双引号问题
+2. 对于打包好的文件 一片空白的问题  需要修改写对应的文件就行 [点这里](https://blog.csdn.net/qq_35310623/article/details/100517269)
