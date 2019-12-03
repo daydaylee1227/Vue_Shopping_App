@@ -2,7 +2,11 @@
   <div id="app">
     
     <div class="header">
-      <mt-header fixed title="Vue商城app"></mt-header>
+      <mt-header fixed title="Vue商城app">
+        <span slot="left" v-show="flag" @click="goBack">
+          <mt-button icon="back" class="back">放回</mt-button>
+        </span>
+      </mt-header>
     </div>
     <div class="container">
       <transition name="home">
@@ -21,7 +25,7 @@
 			</router-link>
 			<router-link class="mui-tab-item-daydaylee" to="/Shopcar">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge" id="badge">0</span>
+          <span class="mui-badge" id="badge">{{$store.getters.Total}}</span>
         </span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
@@ -40,9 +44,38 @@ export default {
   name: 'App',
   data() {
     return {
-      
+      flag : true,
+      routerlist : ['/Home','/Shopcar','/Member','/Seach'],
     }
   },
+  created(){
+    if(this.isShow(this.$route.path)){
+      this.flag = false;
+    }
+  },
+  methods : {
+    goBack(){
+        this.$router.go(-1);
+    },
+    isShow(tmp){
+      var cc = false;
+      this.routerlist.forEach(el => {
+        if(el == tmp){
+          cc = true;
+        }
+      })
+      return cc;
+    }
+  },
+  watch: {
+    "$route.path" : function(newval,oldVal){
+        if(this.isShow(newval)){
+            this.flag = false;
+        }else{
+            this.flag = true;
+        }
+    }
+  }
 }
 </script>
 
@@ -131,5 +164,13 @@ body,html{
 }
 .mui-bar-tab{
   z-index: 50 !important;
+}
+
+</style>
+<style >
+.mint-button-text{
+  padding-left: 3px !important;
+  line-height: 15px !important;
+  padding-top: 2px;
 }
 </style>

@@ -139,6 +139,7 @@ export default {
 			
 		},
 		FuncNum(){
+			
 			this.msg = this.msg.replace(/^(0+)|[^\d]+/g,'');
 			this.msg = Math.max(1,this.msg);
 			this.msg = Math.min(this.max,this.msg);
@@ -146,6 +147,17 @@ export default {
 		// 购物车
 		GoodCar(){
 			this.ballFlag = !this.ballFlag;
+			// 保存到store中
+			var goodinfo = {
+				id : this.id,
+				count : this.msg,
+				price : this.sonlist[0].price_now,
+				selected : true,
+				title : this.sonlist[0].title,
+				maxn : this.sonlist[0].num,
+			};
+			this.$store.commit('addToCar',goodinfo);
+			this.$store.commit('getAll_Price',goodinfo); // 一开始就默认需要数据更新
 		},
 		beforEenter(el){
 			

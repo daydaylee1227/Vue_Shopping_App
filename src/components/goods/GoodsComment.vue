@@ -24,7 +24,6 @@ export default {
     },
     methods : {
         getGoodsComment(){
-
             const toastInstanse = this.$toast({
                 message: "  一切都是假数据 ",
                 position: "middle", 
