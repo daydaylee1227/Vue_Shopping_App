@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'mui' : path.resolve(__dirname, '../src/assets/mui/js/mui.js'),
     }
   },
   module: {

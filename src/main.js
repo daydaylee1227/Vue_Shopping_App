@@ -5,6 +5,10 @@ import App from './App'
 import router from './router/router.js'
 import Vuex from 'vuex'
 Vue.use(Vuex)
+// 导入mui
+import mui from './assets/mui/js/mui.js'
+Vue.prototype.mui = mui;
+
 import './assets/mui/css/mui.min.css'
 
 import './assets/mui/css/icons-extra.css'
@@ -51,7 +55,6 @@ Vue.filter('formatDate', function (data) {
 var Star_car = JSON.parse(localStorage.getItem('car') || '[]');
 // vm.$store.commit('getAll_Price',goodinfo); // 一开始就默认需要数据更新
 // console.log(this) 
-
 
 var store = new Vuex.Store({
   state: {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="homeContainer"> 
     <mt-swipe :auto="3000" :stopPropagation="true">
       <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
           <img :src="item.url" alt="">
@@ -121,5 +121,8 @@ height: 100%;
 }
 .mui-table-view-cell{
   border: none !important;
+}
+#homeContainer{
+  background-color: #fff !important;
 }
 </style>

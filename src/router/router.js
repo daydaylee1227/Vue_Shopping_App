@@ -13,6 +13,7 @@ import GoodList from '@/components/goods/GoodList.vue'
 import GoodInfo from '@/components/goods/GoodsInfo.vue'
 import GoodsDesc from '@/components/goods/GoodsDesc.vue'
 import GoodsComment from '@/components/goods/GoodsComment.vue'
+import Reg from '@/components/user/reg.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -50,6 +51,7 @@ export default new Router({
     {path : '/home/goodinfo/:id', name : 'goodinfo', component : GoodInfo},
     {path : '/home/goodDesc/:id', name : 'goodsdesc', component : GoodsDesc},
     {path : '/home/goodComment/:id', name : 'goodscomment', component : GoodsComment},
+    {path : '/Member/reg', name : "reg", component : Reg},
   ],
   linkActiveClass : 'mui-active',
 })

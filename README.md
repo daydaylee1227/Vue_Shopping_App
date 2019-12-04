@@ -28,7 +28,7 @@ npm test
 ```
 
 # 这是一个基于vue的购物商城系统app
-项目基于vue2.0 + vue-router + webpack + Mint-ui + mui库
+项目基于vue2.0 + vue-router + Vuex + webpack + Mint-ui + mui库
 ## 制作首页App组件
 
 1. 完成 Header 区域 使用的是Mint-UI的Header组件
@@ -228,6 +228,7 @@ npm test
 3. 打开自己的项目 package.json 在dev中 添加一个--host指令 把电脑的wifi IP地址设置为 --host值
 4. 查看电脑所处wifi ip 在cmd 终端运行'ipconfig' 查看无限网ip地址
 5. 按钮的消失可以在tabbar栏的时候都隐藏  小优化
+6. "dev1": "webpack-dev-server  --host 10.128.31.212 --inline --progress --config build/webpack.dev.conf.js",
 ## 数据问题
 1. 用户购买的对应商品的最大数量问题 也就是这个 商品的剩余量
     + 由于数据的请求是通过这个Vue-resource请求的 所以这个是异步加载数据的过程 还没有等到数据拿到 就通过组件间数据的传递 最后很有可能是undefinded 所以解决的办法就是
