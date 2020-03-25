@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+**[效果点这里](https://daydaylee1227.github.io/Vue_shopping_view/)**
+
 ## Build Setup
 
 ``` bash
