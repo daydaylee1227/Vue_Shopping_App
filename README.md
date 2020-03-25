@@ -28,7 +28,7 @@ npm test
 ```
 
 # 这是一个基于vue的购物商城系统app
-项目基于vue2.0 + vue-router + Vuex + webpack + Mint-ui + mui库
+项目基于vue-cli + vue-router + Vuex + webpack + Mint-ui + mui库
 ## 制作首页App组件
 
 1. 完成 Header 区域 使用的是Mint-UI的Header组件
@@ -221,6 +221,10 @@ npm test
 2. 通过watch属性监听路由地址的变化 $route.path
 3. 通过这个v-show 实现显示隐藏效果
 4. this.$router.go(-1); 回退到上一步
+
+## 用户的登入界面
+1. 主要的问题就是 注册 登入 以及自动登入 设置 手势密码 之间的逻辑操作
+2. 考虑到每个板块都是单独的一个组件 也就是单页面的跳转 所有利用vuex将多个组件需要的数据存在state属性中  比如 是否自动登入 用户的登入密码  用户设置的手势密码
 ## 手机上访问 项目的预览和测试
 
 1. 保证自己的手机可以正常的运行
@@ -229,6 +233,10 @@ npm test
 4. 查看电脑所处wifi ip 在cmd 终端运行'ipconfig' 查看无限网ip地址
 5. 按钮的消失可以在tabbar栏的时候都隐藏  小优化
 6. "dev1": "webpack-dev-server  --host 10.128.31.212 --inline --progress --config build/webpack.dev.conf.js",
+7. 有时候出现修改本机ip地址问题不能解决的话 使用npm i -D webpack-dev-server@2.9.7
+8. 
+## 用户登入界面
+
 ## 数据问题
 1. 用户购买的对应商品的最大数量问题 也就是这个 商品的剩余量
     + 由于数据的请求是通过这个Vue-resource请求的 所以这个是异步加载数据的过程 还没有等到数据拿到 就通过组件间数据的传递 最后很有可能是undefinded 所以解决的办法就是
@@ -242,6 +250,7 @@ npm test
 		}
 	},
     `
+
 ## 打包问题 
 1. npm run build 时 发现上面css文件有问题 解决的办法就是把mui中css样式中 设计 svg引号问题
    那个url 最外面改成双引号问题

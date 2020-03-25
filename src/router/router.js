@@ -14,6 +14,9 @@ import GoodInfo from '@/components/goods/GoodsInfo.vue'
 import GoodsDesc from '@/components/goods/GoodsDesc.vue'
 import GoodsComment from '@/components/goods/GoodsComment.vue'
 import Reg from '@/components/user/reg.vue'
+import Setting from '@/components/user/setting.vue'
+import Gesture from '@/components/user/Gesture.vue'
+import User from '@/components/user/User.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +55,10 @@ export default new Router({
     {path : '/home/goodDesc/:id', name : 'goodsdesc', component : GoodsDesc},
     {path : '/home/goodComment/:id', name : 'goodscomment', component : GoodsComment},
     {path : '/Member/reg', name : "reg", component : Reg},
+    {path : '/Member/setting', name : 'Setting', component : Setting},
+    {path : '/Member/Gesture', name : 'Gesture', component : Gesture},
+    {path : '/Member/User', name : 'User', component : User},
+
   ],
   linkActiveClass : 'mui-active',
 })

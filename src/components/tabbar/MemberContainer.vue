@@ -1,17 +1,17 @@
 <template>
     <div class="Member">
         <!-- <Gesture-login @input='getGesturepassword' v-show="Gesture_flag"></Gesture-login> -->
-        <Login></Login>
+        <Login ></Login>
         <!-- <reg></reg> -->
         <!-- <setting></setting> -->
         <!-- <header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
 			<h1 class="mui-title">登录模板</h1>
 			<button id='setting' class=" mui-pull-right mui-btn-link">设置</button>
-		</header>
-		<div class="mui-content">
+		</header> -->
+		<!-- <div class="mui-content" v-show="success">
 			<div class="mui-content-padded">
 				<p>
-					您好 <span id='account'></span>，您已成功登录。
+					您好 <span id='account'></span>您已成功登录。
 					<ul>
 						<li>这是mui带登录和设置模板的示例App首页。</li>
 						<li>您可以点击右上角的 “设置” 按钮，进入设置模板，体验div窗体切换示例。</li>
@@ -40,6 +40,7 @@ export default {
       return {
           Gesture_passwordlist : null,
           Gesture_flag : true,
+          success : false,
       }
     },
     methods : {
@@ -61,5 +62,17 @@ export default {
 导入这个报错*/
 .Member{
     height: 100% !important;
+}
+</style>
+
+<style >
+.mui-content{
+    margin-top: 10px !important;
+}    
+</style>
+<style lang="">
+.Member .mui-content{
+    margin-top: 0px !important;
+
 }
 </style>

@@ -1,6 +1,11 @@
 <template>
     <div>
         <canvas id="gesture" ref="canvas" :style="style" />
+        <div class="tell">
+          <span>
+                第{{count}}次输入
+          </span>
+        </div>
     </div>
 </template>
 
@@ -12,7 +17,7 @@ export default {
   props: {
     chooseType: {
       type: Number,
-      default: 3 // 3: 3*3, 4: 4*4, 5: 5*5
+      default: 5 // 3: 3*3, 4: 4*4, 5: 5*5
     }
   },
   data() {
@@ -28,7 +33,8 @@ export default {
       devicePixelRatio: window.devicePixelRatio || 1,  //设备的比率
       circleArr: [],
       lastPoint: [],
-      restPoint: []
+      restPoint: [],
+      count : 0,
     };
   },
   mounted() {
@@ -134,7 +140,7 @@ export default {
       }
     },
     onStartHandler(e) {
-
+      console.log("This is to Start")
       e.preventDefault(); // 某些android 的 touchmove不宜触发 所以增加此行代码
       // 重置图案
       this.onReset();
@@ -164,10 +170,16 @@ export default {
         // 手势抬起的时候
         // daydaylee 结束
         // this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-      
+      this.count++;
+      if(this.count == 2){
+        console.log("This is over");
+      }
       if (this.touchedFlag) {
         this.touchedFlag = false;
         this.$emit('input', this.lastPoint.map((point) => {
+          if(point.index >= 4){
+            console.log("第"+this.count+"输入完成");
+          }
           return point.index;
         }));
         // 重绘最后所有点
@@ -242,5 +254,8 @@ canvas{
 <style  scoped>
 /* lang="scss" 
 导入这个报错*/
-
+.tell{
+  margin-top: 10px;
+  text-align: center;
+}
 </style>

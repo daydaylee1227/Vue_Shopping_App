@@ -17,7 +17,7 @@
                     </mt-cell>
             </div>
             <div class="item">
-                <mt-cell title="设置锁屏图案" icon="" value="" is-link>
+                <mt-cell title="设置锁屏图案" icon="" value="" is-link to='/Member/Gesture'>
                     <span class="mui-icon mui-icon-locked"></span>
                 </mt-cell>
             </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import Gesture from '../user/Gesture.vue'
 export default {
     data() {
         return {
@@ -37,12 +38,13 @@ export default {
     },
     methods : {
         show(){
-            console.log("This is ")
+            console.log("客服电话")
         },
         goBack(){
 
         }
-    }
+    },
+    
 }
 </script>
 

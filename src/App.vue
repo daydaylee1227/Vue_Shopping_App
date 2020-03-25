@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       flag : true,
-      routerlist : ['/Home','/Shopcar','/Member','/Seach'],
+      routerlist : ['/Home','/Shopcar','/Member','/Seach','/Member/User'],
     }
   },
   created(){
@@ -96,7 +96,7 @@ body,html{
   top: 40px;
   bottom: 0px;
   overflow-x: hidden;
-  background: #fff !important;
+  /* background: #fff !important; */
   width: 100%;
 }
 .header{

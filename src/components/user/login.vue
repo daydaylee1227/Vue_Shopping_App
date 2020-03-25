@@ -1,7 +1,7 @@
 <template lang="">
     <div class='login'>
         
-		<div class="mui-content">
+		<div class="mui-content login-content">
 			<form id='login-form' class="mui-input-group">
 				<div class="mui-input-row">
 					<label>账号</label>
@@ -24,7 +24,7 @@
 				</ul>
 			</form>
 			<div class="mui-content-padded">
-				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary" @click='submit'>登录</button>
 				<div class="link-area"><a id='reg' @click='Goreg'>注册账号</a> 
                 <span class="spliter">|</span> 
                 <a id='forgetPassword'>忘记密码</a>
@@ -37,7 +37,6 @@
                 <div>
                     <img :src='item.url'></img>
                 </div>
-                
             </div>
 
         </div>
@@ -47,7 +46,9 @@
 <script>
 
 import mui from '../../assets/mui/js/mui.js';
+
 mui.init();
+
 export default {
     data() {
         return {
@@ -81,6 +82,10 @@ export default {
         Goreg(){
             console.log(222);
             this.$router.push("/Member/reg");
+        },
+        submit(){
+            console.log('This is 注册成功!');
+            this.$router.push('/Member/User');
         }
     },
     watch: {
@@ -100,8 +105,8 @@ export default {
     height: 100%; 
     background: #eee !important;
 }   
-.mui-content-padded{
-    
+.login-content{
+    margin-top: 20px !important;
 }
 .link-area{
     transform: translateX(50%);

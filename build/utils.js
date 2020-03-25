@@ -48,7 +48,7 @@ exports.cssLoaders = function (options) {
       return ExtractTextPlugin.extract({
         use: loaders,
         fallback: 'vue-style-loader',
-        // publicPath:'../../', // 增加
+        publicPath:'../../', // 增加
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
